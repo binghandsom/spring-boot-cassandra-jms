@@ -1,5 +1,0 @@
-# docker run --name='activemq' -e 'ACTIVEMQ_MIN_MEMORY=512' -e 'ACTIVEMQ_MAX_MEMORY=2048' -d  webcenter/activemq:latest
-docker run --name='artemis' -d  vromero/activemq-artemis
-docker run --name='cass0' -d zmarcantel/cassandra
-docker run --name='cass1' -d zmarcantel/cassandra
-docker run --name='cass2' -d zmarcantel/cassandra
