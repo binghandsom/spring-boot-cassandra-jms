@@ -17,6 +17,8 @@ public class JmsConfig {
     JmsListenerContainerFactory<?> myJmsContainerFactory(ConnectionFactory connectionFactory) {
         SimpleJmsListenerContainerFactory factory = new SimpleJmsListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
+        factory.setSessionTransacted(true);
+        
         return factory;
     }
 
