@@ -2,6 +2,7 @@ package info.rajeshg.domain;
 
 import java.nio.ByteBuffer;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,12 +13,14 @@ import com.datastax.driver.core.utils.UUIDs;
 @RestController
 public class MessageController {
 	
+	Logger log = Logger.getLogger(MessageController.class);
+	
 	@Autowired
 	MessageService messageService;
 	
 	@RequestMapping(value="/message")
 	public void message(@RequestParam(value="payload") String payload){
-		
+		log.info("Web request received with payload:"+payload);
 		Message message = new Message();
 		
 		message.setDestination("DEST");
@@ -32,6 +35,7 @@ public class MessageController {
 		message.setSource("INT");
 		
 		messageService.processMessage(message);
+		log.info("Web request saved - message:"+message);
 		
 	}
 

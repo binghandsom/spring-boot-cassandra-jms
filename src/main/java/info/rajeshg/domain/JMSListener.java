@@ -2,6 +2,7 @@ package info.rajeshg.domain;
 
 import java.nio.ByteBuffer;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.JmsListener;
@@ -14,8 +15,12 @@ public class JMSListener {
 	@Autowired
 	MessageService messageService;
 	
-	@JmsListener(destination="spring.boot.cassandra.queue")
+	Logger log=Logger.getLogger(JMSListener.class);
+	
+	@JmsListener(destination="spring.boot.cassandra.queue", containerFactory="myJmsContainerFactory")
 	public void message(String payload){
+		
+		log.info("JMS Payload received:"+payload);
 		
 		Message message = new Message();
 		
@@ -31,6 +36,7 @@ public class JMSListener {
 		message.setSource("INT");
 		
 		messageService.processMessage(message);
+		log.info("Message saved:"+message);
 		
 	}
 
