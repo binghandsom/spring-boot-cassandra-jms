@@ -26,3 +26,8 @@
 	status text,
 	PRIMARY KEY (source, destination, payloadType,valueDate,whenReceived,status,uuid)
 );
+
+### JMeter Performance Test Results
+#### Test #1
+- Parameters (10 threads and 10000 messages)
+- Time taken 7.44 minutes
