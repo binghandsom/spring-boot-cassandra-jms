@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.datastax.driver.core.utils.UUIDs;
 
+import info.rajeshg.annotation.TimeIt;
+
 @Configuration
 public class JMSListener {
 
@@ -18,6 +20,7 @@ public class JMSListener {
 
 	Logger log = Logger.getLogger(JMSListener.class);
 
+	@TimeIt
 	@JmsListener(destination = "spring.boot.cassandra.queue", containerFactory = "myJmsContainerFactory")
 	@Transactional()
 	public void message(String payload) {
