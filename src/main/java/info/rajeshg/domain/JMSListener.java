@@ -29,7 +29,7 @@ public class JMSListener {
 		message.setPayload(ByteBuffer.allocate(payload.length()).put(payload.getBytes()));
 		message.setPayloadType("iso.pain.113");
 		message.setPayloadFormat("json");
-		message.setPayloadChannel("web");
+		message.setPayloadChannel("jms");
 		message.setValueDate("20160716");
 		message.setStatus("NEW");
 		message.setWhenReceived(UUIDs.timeBased());
