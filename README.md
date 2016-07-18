@@ -8,7 +8,7 @@
 
 ### Machine used: 
 - OS: Ubuntu 15.10
-- Intel I7 - Octa core
+- Intel I7 - Octa core,  16GB RAM
 
 #### All docker containers including JMeter and Spring boot app are run on this machine
 
